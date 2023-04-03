@@ -29,6 +29,7 @@ public class Main {
                     myCylinder.setRadius(newRadius);
                 }
                 case 3 -> System.out.println("Pole podstawy: " + myCylinder.baseArea() + "\n Pole boczne: " + myCylinder.sideArea() + "\n Pole całkowite: " + myCylinder.area() + "\n Objetosc: " + myCylinder.volume());
+                default -> System.out.println("Zła opcja");
             }
         }
     }
