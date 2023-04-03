@@ -17,60 +17,55 @@ public class Main {
         int choice = 1;
 
         while(choice != 0){
-            System.out.println("Co chcesz zrobic? \n 1-Policz pole podstawy \n 2-Policz pole boczne \n 3-Policz pole całkowite \n 4-Policz objętość \n 5-Wyswietl wartosci zmiennych walca \n" +
-                    " 6-Zmien wartosci zmiennych walca \n 0-Zakończ program");
+            System.out.println("""
+                    Co chcesz zrobic?\s
+                     1-Policz pole podstawy\s
+                     2-Policz pole boczne\s
+                     3-Policz pole całkowite\s
+                     4-Policz objętość\s
+                     5-Wyswietl wartosci zmiennych walca\s
+                     6-Zmien wartosci zmiennych walca\s
+                     0-Zakończ program""");
+
             choice = input.nextInt();
 
             switch (choice) {
-                case 0:
+                case 0 -> {
                     System.out.println("Zakończono");
                     System.exit(0);
-                    break;
-                case 1:
-                    System.out.println("Pole podstawy wynosi: " + myCylinder.baseArea());
-                    break;
-                case 2:
-                    System.out.println("Pole boczne wynosi: " + myCylinder.sideArea());
-                    break;
-                case 3:
-                    System.out.println("Pole całkowite wynosi: " + myCylinder.area());
-                    break;
-                case 4:
-                    System.out.println("Objętość wynosi: " + myCylinder.volume());
-                    break;
-                case 5:
-                    System.out.println("Wysokosc: " + myCylinder.getHeight() + " Promien: " + myCylinder.getRadius());
-                    break;
-                case 6:
+                }
+                case 1 -> System.out.println("Pole podstawy wynosi: " + myCylinder.baseArea());
+                case 2 -> System.out.println("Pole boczne wynosi: " + myCylinder.sideArea());
+                case 3 -> System.out.println("Pole całkowite wynosi: " + myCylinder.area());
+                case 4 -> System.out.println("Objętość wynosi: " + myCylinder.volume());
+                case 5 ->
+                        System.out.println("Wysokosc: " + myCylinder.getHeight() + " Promien: " + myCylinder.getRadius());
+                case 6 -> {
                     System.out.println("Co chcesz zmienic? \n 1-Wysokosc \n 2-Promien \n 3-Oba");
                     choice = input.nextInt();
                     switch (choice) {
-                        case 1:
+                        case 1 -> {
                             System.out.println("Podaj nowa wysokość >> ");
                             height = input.nextDouble();
                             myCylinder.setHeight(height);
-                            break;
-                        case 2:
+                        }
+                        case 2 -> {
                             System.out.println("Podaj nowy promien >> ");
                             radius = input.nextDouble();
                             myCylinder.setRadius(radius);
-                            break;
-                        case 3:
+                        }
+                        case 3 -> {
                             System.out.println("Podaj nowa wysokość >> ");
                             height = input.nextDouble();
                             myCylinder.setHeight(height);
                             System.out.println("Podaj nowy promien >> ");
                             radius = input.nextDouble();
                             myCylinder.setRadius(radius);
-                            break;
-                        default:
-                            System.out.println("Zła opcja");
-                            break;
+                        }
+                        default -> System.out.println("Zła opcja");
                     }
-                    break;
-                default:
-                    System.out.println("Zła opcja");
-                    break;
+                }
+                default -> System.out.println("Zła opcja");
             }
         }
         }
