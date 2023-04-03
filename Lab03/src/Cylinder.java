@@ -29,7 +29,7 @@ public class Cylinder {
     }
 
     public double sideArea(){
-        return 2*Math.PI*Math.pow(radius,2);
+        return 2*Math.PI*radius*height;
     }
 
     public double area(){

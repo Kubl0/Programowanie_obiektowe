@@ -8,15 +8,16 @@ public class Main {
         Cylinder myCylinder = new Cylinder();
 
         int choice;
+        boolean run = true;
 
-        while(true){
+        while(run){
             System.out.println("Jaka operacje chcesz wykonac? \n 1-Wyswietl wartosci zmiennych walca \n 2-Zmien wartości zmiennych walca \n 3-Wyswietl pola i objetosc \n 0-Zakoncz");
             choice = input.nextInt();
 
             switch (choice) {
                 case 0 -> {
                     System.out.println("Zakończono");
-                    System.exit(0);
+                    run = false;
                 }
                 case 1 -> System.out.println("Wysokość: " + myCylinder.getHeight() + " Promień: " + myCylinder.getRadius());
                 case 2 -> {
