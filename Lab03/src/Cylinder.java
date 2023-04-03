@@ -15,9 +15,9 @@ public class Cylinder {
 
     public double getHeight(){return height;}
 
-    public Cylinder(double c_radius, double c_height){
-        radius = c_radius;
-        height = c_height;
+    public Cylinder(double cylinderRadius, double cylinderHeight){
+        radius = cylinderRadius;
+        height = cylinderHeight;
     }
 
     public Cylinder(){
