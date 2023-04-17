@@ -9,11 +9,7 @@ public class GradeList {
         grades.add(newGrade);
     }
     public double averageGrade(){
-            double sumOfAllGrades = 0;
-        for (Double grade : grades) {
-            sumOfAllGrades = sumOfAllGrades + grade;
-        }
-            return sumOfAllGrades/grades.size();
+        return grades.stream().reduce(0.0, Double::sum)/grades.size();
     }
 
     public double maxGrade(){
