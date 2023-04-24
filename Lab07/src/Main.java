@@ -31,7 +31,7 @@ public class Main {
         }
     }
     public static void addMeeting(Calendar myCalendar, Scanner inputInt, Scanner inputString){
-        System.out.print("Podaj dzień spotkania (1-poniedzialek...7-niedziela)>> ");
+        System.out.print("Podaj dzień spotkania >> ");
         int newDay = inputInt.nextInt() - 1;
         System.out.print("Podaj opis spotkania >> ");
         String newDesc = inputString.nextLine();
@@ -48,7 +48,7 @@ public class Main {
     }
 
     public static void removeMeeting(Calendar myCalendar, Scanner input){
-        System.out.print("Podaj dzień spotkania (1-poniedziałek...7-niedziela)>> ");
+        System.out.print("Podaj dzień spotkania >> ");
         int newDay = input.nextInt() - 1;
         System.out.print("Podaj indeks spotkania >> ");
         int id = input.nextInt();

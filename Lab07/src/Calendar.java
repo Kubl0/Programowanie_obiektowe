@@ -4,10 +4,13 @@ public class Calendar {
 
     private final ArrayList<ArrayList<Meeting>> weekMeetings;
 
-    public Calendar() {
+    public Calendar(){
+        this(7);
+    }
+    public Calendar(int numberOfDays){
         this.weekMeetings = new ArrayList<>();
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < numberOfDays; i++) {
             weekMeetings.add(new ArrayList<>());
         }
     }
