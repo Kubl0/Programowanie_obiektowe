@@ -3,10 +3,10 @@ import java.time.LocalTime;
 public class Meeting {
     public static final LocalTime MIN_MEETING_TIME = LocalTime.of(8,30);
 
-    private final String description;
-    private final LocalTime startTime;
-    private final LocalTime endTime;
-    private final PriorityValues priority;
+    private String description;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private PriorityValues priority;
 
     public enum PriorityValues {
         LOW, MEDIUM, HIGH
