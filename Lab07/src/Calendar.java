@@ -1,21 +1,15 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class Calendar {
 
-    private ArrayList<ArrayList<Meeting>> weekMeetings;
+    private final ArrayList<ArrayList<Meeting>> weekMeetings;
 
     public Calendar() {
-        this.weekMeetings = new ArrayList<ArrayList<Meeting>>();
+        this.weekMeetings = new ArrayList<>();
 
         for (int i = 0; i < 7; i++) {
-            weekMeetings.add(new ArrayList<Meeting>());
+            weekMeetings.add(new ArrayList<>());
         }
-    }
-
-    public void getCalendar() {
-        System.out.println(weekMeetings);
     }
 
     public void addMeeting(int day, Meeting meeting) {
@@ -26,18 +20,18 @@ public class Calendar {
         this.weekMeetings.get(day).remove(id);
     }
 
-    public ArrayList dayMeetings(int day) {
+    public ArrayList<Meeting> dayMeetings(int day) {
         return this.weekMeetings.get(day);
     }
 
-    public ArrayList dayPriorityMeetings(int day, int priority) {
-        ArrayList<Meeting> filtered = this.weekMeetings.get(day);
+    public ArrayList<Meeting> dayPriorityMeetings(int day, int priority) {
+        ArrayList<Meeting> filteredByPriority = new ArrayList<>();
 
-        for (int i = 0; i < filtered.size(); i++) {
-            if (filtered.get(i).getPriority() != priority) {
-                filtered.remove(i);
+        for (int i = 0; i < this.weekMeetings.get(day).size(); i++) {
+            if (this.weekMeetings.get(day).get(i).getPriority() == priority){
+                filteredByPriority.add(this.weekMeetings.get(day).get(i));
             }
         }
-        return filtered;
+        return filteredByPriority;
     }
 }
