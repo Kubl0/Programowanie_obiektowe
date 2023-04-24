@@ -17,6 +17,7 @@ public class Main {
             System.out.println("Jaka operacje chcesz wykonac? \n 1-Dodaj spotkanie \n 2-Usun spotkanie \n 3-Wyswietl spotkania z danego dnia \n 4-Wyswietl spotkania z danego dnia o wybranym priorytecie \n 0-Zakoncz");
             choice = inputInt.nextInt();
 
+
             switch (choice) {
                 case 0 -> {
                     System.out.println("Zakończono");
@@ -25,7 +26,7 @@ public class Main {
                 case 1 -> addMeeting(myCalendar, inputInt, inputString);
                 case 2 -> removeMeeting(myCalendar, inputInt);
                 case 3 -> dayMeetings(myCalendar, inputInt);
-                case 4 -> dayPriorityMeetings(myCalendar, inputInt);
+                case 4 -> dayPriorityMeetings(myCalendar, inputInt, inputString);
                 default -> System.out.println("Zła opcja");
             }
         }
@@ -43,7 +44,7 @@ public class Main {
         System.out.print("Podaj godzine zakonczenia >> ");
         String endTime = inputString.nextLine();
         System.out.print("Podaj priorytet >> ");
-        int priority = inputInt.nextInt();
+        String priority = inputString.nextLine();
         myCalendar.addMeeting(newDay, new Meeting(newDesc, LocalTime.parse(startTime), LocalTime.parse(endTime), priority));
 
     }
@@ -62,17 +63,17 @@ public class Main {
         printResults(myCalendar.dayMeetings(newDay));
     }
 
-    public static void dayPriorityMeetings(Calendar myCalendar, Scanner input){
+    public static void dayPriorityMeetings(Calendar myCalendar, Scanner input, Scanner inputString ){
         System.out.print("Podaj dzień spotkania >> ");
         int newDay = input.nextInt() - 1;
         System.out.print("Podaj priorytet >> ");
-        int priority = input.nextInt();
+        String priority = inputString.nextLine();
         printResults(myCalendar.dayPriorityMeetings(newDay, priority));
     }
 
     public static void printResults(ArrayList<Meeting> result){
         for (Meeting meeting : result) {
-            System.out.println(meeting.getInfo());
+            System.out.println(meeting.toString());
         }
     }
 }

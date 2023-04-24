@@ -6,20 +6,26 @@ public class Meeting {
     private final String description;
     private final LocalTime startTime;
     private final LocalTime endTime;
-    private final int priority;
+    private final PriorityValues priority;
 
-    public Meeting(String desc, LocalTime start, LocalTime end, int priority){
+    public enum PriorityValues {
+        LOW, MEDIUM, HIGH
+    }
+
+
+    public Meeting(String desc, LocalTime start, LocalTime end, String priority){
         this.description = desc;
         this.startTime = start;
         this.endTime = end;
-        this.priority = priority;
+        this.priority = PriorityValues.valueOf(priority);
     }
 
-    public int getPriority() {
-        return priority;
+    public PriorityValues getPriority() {
+        return this.priority;
     }
 
-    public String getInfo(){
+    public String toString(){
         return (this.description + " " + this.startTime + "-" + this.endTime + " Priorytet: " + this.priority);
     }
+
 }

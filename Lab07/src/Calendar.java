@@ -7,6 +7,7 @@ public class Calendar {
     public Calendar(){
         this(7);
     }
+
     public Calendar(int numberOfDays){
         this.weekMeetings = new ArrayList<>();
 
@@ -27,11 +28,11 @@ public class Calendar {
         return this.weekMeetings.get(day);
     }
 
-    public ArrayList<Meeting> dayPriorityMeetings(int day, int priority) {
+    public ArrayList<Meeting> dayPriorityMeetings(int day, String priority) {
         ArrayList<Meeting> filteredByPriority = new ArrayList<>();
 
         for (int i = 0; i < this.weekMeetings.get(day).size(); i++) {
-            if (this.weekMeetings.get(day).get(i).getPriority() == priority){
+            if(this.weekMeetings.get(day).get(i).getPriority() == Meeting.PriorityValues.valueOf(priority)){
                 filteredByPriority.add(this.weekMeetings.get(day).get(i));
             }
         }
