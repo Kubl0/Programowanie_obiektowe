@@ -41,7 +41,7 @@ public class Main {
         String endTime = inputString.nextLine();
         System.out.print("Podaj priorytet >> ");
         int priority = inputInt.nextInt();
-        if(LocalTime.parse(startTime).compareTo(Meeting.MIN_MEETING_TIME) > 0)
+        if(LocalTime.parse(startTime).compareTo(Meeting.MIN_MEETING_TIME) >= 0)
             myCalendar.addMeeting(newDay, new Meeting(newDesc, LocalTime.parse(startTime), LocalTime.parse(endTime), priority));
         else
             System.out.println("Godzina rozpoczecia jest za wczesna");
@@ -58,8 +58,7 @@ public class Main {
     public static void dayMeetings(Calendar myCalendar, Scanner input){
         System.out.print("Podaj dzień spotkania >> ");
         int newDay = input.nextInt() - 1;
-        ArrayList<Meeting> result = myCalendar.dayMeetings(newDay);
-        printResults(result);
+        printResults(myCalendar.dayMeetings(newDay));
     }
 
     public static void dayPriorityMeetings(Calendar myCalendar, Scanner input){
