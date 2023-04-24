@@ -37,14 +37,15 @@ public class Main {
         String newDesc = inputString.nextLine();
         System.out.print("Podaj godzine rozpoczecia >> ");
         String startTime = inputString.nextLine();
+        while(LocalTime.parse(startTime).compareTo(Meeting.MIN_MEETING_TIME) < 0){
+            System.out.print("Godzina rozpoczecia jest za wczesna, podaj nową >> ");
+            startTime = inputString.nextLine();}
         System.out.print("Podaj godzine zakonczenia >> ");
         String endTime = inputString.nextLine();
         System.out.print("Podaj priorytet >> ");
         int priority = inputInt.nextInt();
-        if(LocalTime.parse(startTime).compareTo(Meeting.MIN_MEETING_TIME) >= 0)
-            myCalendar.addMeeting(newDay, new Meeting(newDesc, LocalTime.parse(startTime), LocalTime.parse(endTime), priority));
-        else
-            System.out.println("Godzina rozpoczecia jest za wczesna");
+        myCalendar.addMeeting(newDay, new Meeting(newDesc, LocalTime.parse(startTime), LocalTime.parse(endTime), priority));
+
     }
 
     public static void removeMeeting(Calendar myCalendar, Scanner input){
