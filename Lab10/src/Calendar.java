@@ -30,6 +30,9 @@ public class Calendar {
         return meeting -> !meeting.getStartTime().isBefore(startTime);
     }
 
+    public Predicate<Meeting> getDay(int day){
+        return meeting -> true;
+    }
 
     public Predicate<Meeting> getToTime(LocalTime endTime){
         return meeting -> !meeting.getEndTime().isAfter(endTime);
@@ -37,10 +40,6 @@ public class Calendar {
 
     public Predicate<Meeting> getPriority(String priority){
         return meeting -> meeting.getPriority() == Meeting.PriorityValues.valueOf(priority);
-    }
-
-    public ArrayList<Meeting> dayMeetings(int day){
-        return this.weekMeetings.get(day);
     }
 
     public ArrayList<Meeting> dayMeetings(int day, Predicate<Meeting> predicate) {

@@ -101,7 +101,7 @@ public class Main {
     public static void dayMeetings(Calendar myCalendar, Scanner input){
         System.out.print("Podaj dzień spotkania >> ");
         int newDay = input.nextInt() - 1;
-        printResults(myCalendar.dayMeetings(newDay));
+        printResults(myCalendar.dayMeetings(newDay, myCalendar.getDay(newDay)));
     }
 
     public static void dayPriorityMeetings(Calendar myCalendar, Scanner input, Scanner inputString ){
